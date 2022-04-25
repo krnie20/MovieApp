@@ -1,2 +1,2 @@
 # MovieApp
-;ade by the champs
+Made by the champs
