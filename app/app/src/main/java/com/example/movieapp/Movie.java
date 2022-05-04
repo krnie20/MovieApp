@@ -8,10 +8,17 @@ public class Movie {
     private String studio;
     private String rating;
     private String streamingLink;
+    private int coverPhoto;
 
     public Movie(int thumbnail, String title) {
         this.title = title;
         this.thumbnail = thumbnail;
+    }
+
+    public Movie( int thumbnail, String title, int coverPhoto) {
+        this.title = title;
+        this.thumbnail = thumbnail;
+        this.coverPhoto = coverPhoto;
     }
 
     public Movie(String title, String description, int thumbnail, String studio, String rating, String streamingLink) {
@@ -69,5 +76,13 @@ public class Movie {
 
     public void setStreamingLink(String streamingLink) {
         this.streamingLink = streamingLink;
+    }
+
+    public int getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(int coverPhoto) {
+        this.coverPhoto = coverPhoto;
     }
 }
