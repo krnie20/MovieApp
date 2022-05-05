@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
 
         // Add more movies ----------------------------------------
         lstMovie.add(Movie(R.drawable.slide_1,"Avengers", R.drawable.slide_1))
-        lstMovie.add(Movie(R.drawable.slide_2, "Ironman", R.drawable.slide_1))
-        lstMovie.add(Movie(R.drawable.slide_1, "Avengers", R.drawable.slide_2))
-        lstMovie.add(Movie(R.drawable.slide_2, "Ironman", R.drawable.slide_1))
-        lstMovie.add(Movie(R.drawable.slide_1, "Avengers", R.drawable.slide_2))
-        lstMovie.add(Movie(R.drawable.slide_2, "Ironman", R.drawable.slide_1))
+        lstMovie.add(Movie(R.drawable.slide_2, "Ironman", R.drawable.slide_2))
+        lstMovie.add(Movie(R.drawable.slide_1, "Avengers", R.drawable.slide_1))
+        lstMovie.add(Movie(R.drawable.slide_2, "Ironman", R.drawable.slide_2))
+        lstMovie.add(Movie(R.drawable.slide_1, "Avengers", R.drawable.slide_1))
+        lstMovie.add(Movie(R.drawable.slide_2, "Ironman", R.drawable.slide_2))
         //---------------------------------------------------------
 
         val sliderpager: ViewPager = binding.sliderPage //this.findViewById<ViewPager>(R.id.slider_page)
@@ -44,8 +44,7 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
 
         // Set up the movie adapter
         val movieRV: RecyclerView = binding.RvMovies
-        movieRV.adapter =
-            MovieAdapter(this, lstMovie, this)
+        movieRV.adapter = MovieAdapter(this, lstMovie, this)
         movieRV.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         // Setting the viewbinding
@@ -58,7 +57,7 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
         val intent = Intent(this, MovieDetailActivity::class.java)
         intent.putExtra("title", movie.title)
         intent.putExtra("imgURL", movie.thumbnail)
-        intent.getIntExtra("imgCover", movie.coverPhoto)
+        intent.putExtra("imgCover", movie.coverPhoto)
 
         // Making the transition
         val options = ActivityOptions.makeSceneTransitionAnimation(this, movieImageView, "sharedName")

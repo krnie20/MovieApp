@@ -26,7 +26,8 @@ class MovieDetailActivity : AppCompatActivity() {
         tv_desc = findViewById(R.id.detail_movie_desc)
 
         tv_title.text = movieTitle
-        Glide.with(this).load(imageResourceId).into(movieCover)
+        supportActionBar?.setTitle(movieTitle)
+        Glide.with(this).load(coverResourceId).into(movieCover)
         Glide.with(this).load(imageResourceId).into(movieThumbnail)
     }
 }
