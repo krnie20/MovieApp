@@ -3,6 +3,7 @@ package com.example.movieapp
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -51,6 +52,14 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
         // Setting the viewbinding
         val view = binding.root
         setContentView(view)
+
+        // FragmentsTestActivity
+        val fragmentsTestButton = findViewById<Button>(R.id.fragments_test_button)
+        fragmentsTestButton.setOnClickListener {
+            val intent = Intent(this,FragmentsTestActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onMovieClick(movie: Movie, movieImageView: ImageView?) {

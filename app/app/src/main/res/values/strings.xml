@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MovieApp</string>
     <string name="simple_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat. Massa id neque aliquam vestibulum. Lobortis scelerisque fermentum dui faucibus in ornare.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
