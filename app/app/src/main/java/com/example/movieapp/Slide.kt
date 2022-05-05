@@ -1,3 +1,3 @@
 package com.example.movieapp
 
-class Slide(var image: Int, var title: String)
+class Slide(var imageURL: String, var title: String)

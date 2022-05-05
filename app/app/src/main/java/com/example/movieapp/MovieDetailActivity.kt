@@ -18,16 +18,16 @@ class MovieDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_movie_detail)
 
         var movieTitle = intent.getStringExtra("title")
-        var imageResourceId =  intent.getIntExtra("imgURL", 0)
-        var coverResourceId = intent.getIntExtra("imgCover", 0)
+        var imageResourceId =  intent.getStringExtra("imgURL")
+        var coverResourceId = intent.getStringExtra("imgCover")
         movieThumbnail = findViewById(R.id.detail_movie_img)
         movieCover = findViewById(R.id.detail_movie_cover)
         tv_title = findViewById(R.id.detail_movie_title)
         tv_desc = findViewById(R.id.detail_movie_desc)
 
         tv_title.text = movieTitle
-        supportActionBar?.setTitle(movieTitle)
-        Glide.with(this).load(coverResourceId).into(movieCover)
+        supportActionBar?.title = movieTitle
         Glide.with(this).load(imageResourceId).into(movieThumbnail)
+        Glide.with(this).load(coverResourceId).into(movieCover)
     }
 }

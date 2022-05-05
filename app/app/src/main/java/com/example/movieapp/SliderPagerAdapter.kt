@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.bumptech.glide.Glide
 
 class SliderPagerAdapter(private val mContext: Context, private val mList: List<Slide>) :
     PagerAdapter() {
@@ -15,7 +16,7 @@ class SliderPagerAdapter(private val mContext: Context, private val mList: List<
         val slideLayout = inflater.inflate(R.layout.slide_item, null)
         val slideImg = slideLayout.findViewById<ImageView>(R.id.slide_img)
         val slideText = slideLayout.findViewById<TextView>(R.id.slider_title)
-        slideImg.setImageResource(mList[position].image)
+        Glide.with(mContext).load(mList[position].imageURL).centerCrop().into(slideImg)
         slideText.text = mList[position].title
         container.addView(slideLayout)
         return slideLayout
