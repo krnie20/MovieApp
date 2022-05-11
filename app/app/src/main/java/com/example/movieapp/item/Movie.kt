@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.item
 
 class Movie {
     var title: String

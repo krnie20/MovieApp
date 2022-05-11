@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
+import com.example.movieapp.R
+import com.example.movieapp.item.Slide
 
 class SliderPagerAdapter(private val mContext: Context, private val mList: List<Slide>) :
     PagerAdapter() {

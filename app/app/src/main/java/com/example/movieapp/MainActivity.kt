@@ -9,7 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.example.movieapp.adapter.MovieAdapter
+import com.example.movieapp.adapter.SliderPagerAdapter
 import com.example.movieapp.databinding.ActivityMainBinding
+import com.example.movieapp.item.Movie
+import com.example.movieapp.item.Slide
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity(), MovieItemClickListener {
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
         val lstSlides: MutableList<Slide> = ArrayList()
         val lstMovie: MutableList<Movie> = ArrayList()
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide();
         binding = ActivityMainBinding.inflate(layoutInflater)
         val indicator: TabLayout = binding.indicator // this.findViewById(R.id.indicator)
         // Add more slides as necessary ---------------------------
@@ -48,8 +53,7 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
         //---------------------------------------------------------
 
         val sliderpager: ViewPager = binding.sliderPage //this.findViewById<ViewPager>(R.id.slider_page)
-        sliderpager.adapter =
-            SliderPagerAdapter(this, lstSlides)
+        sliderpager.adapter = SliderPagerAdapter(this, lstSlides)
         indicator.setupWithViewPager(sliderpager, true)
 
         // Set up the movie adapter

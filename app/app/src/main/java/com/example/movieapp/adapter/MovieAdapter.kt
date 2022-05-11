@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.movieapp.MovieAdapter.MyViewHolder
+import com.example.movieapp.MovieItemClickListener
+import com.example.movieapp.R
+import com.example.movieapp.adapter.MovieAdapter.MyViewHolder
+import com.example.movieapp.item.Movie
 
 class MovieAdapter(
     var context: Context,
