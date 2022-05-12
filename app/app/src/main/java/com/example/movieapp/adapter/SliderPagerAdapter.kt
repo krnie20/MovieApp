@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.example.movieapp.R
+import com.example.movieapp.Startpage_youtube_fragment
 import com.example.movieapp.item.Slide
 
 class SliderPagerAdapter(private val mContext: Context, private val mList: List<Slide>) :

@@ -11,9 +11,10 @@ class FragmentsTestActivity : AppCompatActivity() {
 
         val firstFragment = FirstFragment()
         val secondFragment = SecondFragment()
+        val startpageYoutubeFragment = Startpage_youtube_fragment()
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, firstFragment)
+            replace(R.id.flFragment, startpageYoutubeFragment)
             commit()
         }
 
