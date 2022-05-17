@@ -26,6 +26,14 @@ class MovieDetailActivity : AppCompatActivity() {
             commit()
         }
 
+        val bundle = Bundle()
+        val fragment = SecondFragment()
+        bundle.putString("videoId", "b-w-GyXCBn8")
+        fragment.arguments = bundle
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainer, fragment).addToBackStack(null)
+        transaction.commit()
+
         val youtubePlayerView = YouTubePlayerView(this)
 
         setContentView(R.layout.activity_movie_detail)
