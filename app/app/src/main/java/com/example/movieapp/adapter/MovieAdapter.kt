@@ -10,21 +10,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieapp.MovieItemClickListener
 import com.example.movieapp.R
-import com.example.movieapp.adapter.MovieAdapter.MyViewHolder
-import com.example.movieapp.item.Movie
+import com.example.movieapp.model.Movie
 
 class MovieAdapter(
     var context: Context,
     var mData: List<Movie>,
     var movieItemClickListener: MovieItemClickListener
-) : RecyclerView.Adapter<MyViewHolder>() {
+) : RecyclerView.Adapter<MovieAdapter.MyViewHolder>() {
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val TvTitle: TextView
-        val ImgMovie: ImageView
+        val TvTitle: TextView = itemView.findViewById(R.id.movie_item_title)
+        val ImgMovie: ImageView = itemView.findViewById(R.id.movie_item_img)
 
         init {
-            TvTitle = itemView.findViewById(R.id.movie_item_title)
-            ImgMovie = itemView.findViewById(R.id.movie_item_img)
             itemView.setOnClickListener {
                 movieItemClickListener.onMovieClick(mData[adapterPosition], ImgMovie)
             }

@@ -1,8 +1,7 @@
 package com.example.movieapp;
 
 import android.widget.ImageView;
-
-import com.example.movieapp.item.Movie;
+import com.example.movieapp.model.Movie;
 
 public interface MovieItemClickListener {
 
