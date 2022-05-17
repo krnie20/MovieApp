@@ -9,16 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.example.movieapp.ButtonListener
 import com.example.movieapp.MovieItemClickListener
+import com.example.movieapp.R
 import com.example.movieapp.adapter.MovieAdapter
 import com.example.movieapp.adapter.SliderPagerAdapter
 import com.example.movieapp.databinding.ActivityMainBinding
 import com.example.movieapp.model.Movie
 import com.example.movieapp.model.Slide
 import com.example.movieapp.viewModels.mainViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 
-class MainActivity : AppCompatActivity(), MovieItemClickListener {
+class MainActivity : AppCompatActivity(), MovieItemClickListener, ButtonListener {
 
     lateinit var binding: ActivityMainBinding
     private val viewModel : mainViewModel by viewModels()
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
 
         // set up the slider of highlight
         val sliderpager: ViewPager = binding.sliderPage
-        val slideAdapter = SliderPagerAdapter(this, lstSlides)
+        val slideAdapter = SliderPagerAdapter(this, lstSlides, this)
         sliderpager.adapter = slideAdapter
         viewModel.loadSlides(lstSlides)
         viewModel.slidesLiveData.observe(this){
@@ -67,6 +70,29 @@ class MainActivity : AppCompatActivity(), MovieItemClickListener {
         // Making the transition
         val options = ActivityOptions.makeSceneTransitionAnimation(this, movieImageView, "sharedName")
 
+        startActivity(intent, options.toBundle())
+    }
+    override fun onSliderClick(slide : Slide, bt : FloatingActionButton){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.mainFrame, youtubeFragment())
+            commit()
+        }
+        val options = ActivityOptions.makeSceneTransitionAnimation(this, findViewById(R.id.mainFrame),  "sharedName")
+        var bundle = Bundle()
+        val fragment = youtubeFragment()
+        bundle.putString("videoId", slide.ytURL)
+        bundle.putBundle("transition",options.toBundle())
+        fragment.arguments = bundle
+        val transaction = supportFragmentManager.beginTransaction().addToBackStack(null)
+        transaction.replace(R.id.mainFrame, fragment)
+        transaction.commit()
+        //Toast.makeText(this, "Clicked the button " + slide.title, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent =  Intent(this, MainActivity::class.java)
+        val options = ActivityOptions.makeSceneTransitionAnimation(this, findViewById(R.id.mainFrame),  "sharedName")
         startActivity(intent, options.toBundle())
     }
 }

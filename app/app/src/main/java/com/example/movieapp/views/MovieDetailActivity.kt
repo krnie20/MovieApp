@@ -17,10 +17,9 @@ class MovieDetailActivity : AppCompatActivity() {
         val movieTitle = intent.getStringExtra("title")
         val imageResourceId =  intent.getStringExtra("imgURL")
         val ytURL = intent.getStringExtra("ytURL")
-        val startpageYoutubeFragment = youtubeFragment()
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragmentContainer, startpageYoutubeFragment)
+            replace(R.id.fragmentContainer, youtubeFragment())
             commit()
         }
 
