@@ -1,13 +1,6 @@
 package com.example.movieapp
 
-import android.os.Bundle
-import android.content.Context
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
-import com.example.movieapp.adapter.SliderPagerAdapter
-import com.example.movieapp.databinding.FragmentStartpageYoutubeBinding
-import com.example.movieapp.item.Slide
-import com.google.android.material.tabs.TabLayout
 
 class Startpage_youtube_fragment : Fragment(R.layout.fragment_startpage_youtube) {
     /*lateinit var binding: FragmentStartpageYoutubeBinding
