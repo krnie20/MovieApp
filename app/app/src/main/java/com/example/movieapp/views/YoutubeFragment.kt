@@ -1,18 +1,17 @@
-package com.example.movieapp
+package com.example.movieapp.views
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.telephony.mbms.DownloadRequest
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.movieapp.R
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 
-class SecondFragment : Fragment() {
+class youtubeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,7 +30,6 @@ class SecondFragment : Fragment() {
                 if (videoId != null) {
                     youTubePlayer.loadVideo(videoId.toString(), 0F)
                 }
-                youTubePlayer.pause()
             }
         })
 
