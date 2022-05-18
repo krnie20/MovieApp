@@ -12,10 +12,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/slide_rv"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textView">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -29,7 +30,8 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slide_rv" />
+        app:layout_constraintTop_toBottomOf="@+id/slide_rv"
+        app:layout_constraintBottom_toTopOf="@id/Rv_movies"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rv_movies"
