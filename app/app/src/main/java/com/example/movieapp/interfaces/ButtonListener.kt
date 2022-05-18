@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.interfaces
 
 import com.example.movieapp.model.Slide
 import com.google.android.material.floatingactionbutton.FloatingActionButton

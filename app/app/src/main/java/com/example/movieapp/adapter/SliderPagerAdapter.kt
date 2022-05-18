@@ -6,43 +6,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.viewpager.widget.PagerAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.movieapp.ButtonListener
+import com.example.movieapp.interfaces.ButtonListener
 import com.example.movieapp.R
 import com.example.movieapp.model.Slide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class SliderPagerAdapter(private val mContext: Context, private val mList: List<Slide>, var ButtonListener : ButtonListener) :
-    PagerAdapter() {
+class SliderPagerAdapter(
+    var context: Context,
+    var mData: List<Slide>,
+    var btListener: ButtonListener
+) : RecyclerView.Adapter<SliderPagerAdapter.MyViewHolder>() {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val TvTitle: TextView = itemView.findViewById(R.id.slider_title)
+        val ImgMovie: ImageView = itemView.findViewById(R.id.slide_img)
+        val bt : FloatingActionButton = itemView.findViewById(R.id.floatingActionButton)
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-
-        val inflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val slideLayout = inflater.inflate(R.layout.slide_item, null)
-        val slideImg = slideLayout.findViewById<ImageView>(R.id.slide_img)
-        val slideText = slideLayout.findViewById<TextView>(R.id.slider_title)
-        val bt = slideLayout.findViewById<FloatingActionButton>(R.id.floatingActionButton)
-        Glide.with(mContext).load(mList[position].imageURL).centerCrop().into(slideImg)
-        slideText.text = mList[position].title
-        bt.setOnClickListener {
-            var ytURL = mList[position].ytURL
-            ButtonListener.onSliderClick(mList[position], bt)
+        init {
+            bt.setOnClickListener {
+                btListener.onSliderClick(mData[adapterPosition], bt)
+            }
         }
-
-        container.addView(slideLayout)
-        return slideLayout
     }
 
-    override fun getCount(): Int {
-        return mList.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.slide_item, parent, false)
+        return MyViewHolder(view)
     }
 
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view === `object`
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.TvTitle.text = mData.get(position).title
+        Glide.with(context).load(mData.get(position).imageURL).into(holder.ImgMovie)
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(`object` as View)
+    override fun getItemCount(): Int {
+        return mData.size
     }
 }

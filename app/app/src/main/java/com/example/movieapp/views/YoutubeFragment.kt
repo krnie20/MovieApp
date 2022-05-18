@@ -23,7 +23,6 @@ class youtubeFragment : Fragment() {
 
         val data = arguments
         val videoId = data?.get("videoId")
-        //var videoId = data!!.getString("video_id")
 
         youtubePlayer.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
@@ -40,9 +39,4 @@ class youtubeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         }
-
-    override fun onStart() {
-        super.onStart()
-
-    }
     }
