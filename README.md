@@ -1,4 +1,6 @@
 # MovieApp
-Made by the champs
+This project is our exam in Adnroid programming. The app is a movie displaying app that uses glide to get covers from the internet. It also has an embedded youtubeplayer for displaying trailers. This is done in a fragment and the app has a MVVM structure to pass data from our repository to our recyclerviews.
+We hope you enjoy it.
 
-Youtube vid for helping with displaying youtube vids: https://www.youtube.com/watch?v=yyduqrCpKGg 
+Made by
+Kristoffer Kaas Nielsen and Tobias Krongaard Piekut
